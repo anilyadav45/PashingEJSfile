@@ -11,19 +11,20 @@ app.set("views", path.join(__dirname, "/views")); //line-2
 app.get("/", (req, res) => {
     res.render("home.ejs");
 })
-const port = 8080;
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-});
+
 //render images route
 app.get("/images", (req, res) => {
     res.render("images.ejs");
 })
 //render diceval route
+let dicevalue = Math.floor(Math.random() * 6) + 1; //suppose this value is from DataBase then
 app.get("/diceval", (req, res) => {
-    res.render("diceval.ejs");
+    res.render("diceval.ejs", { dicevalue }); //as a object we send data to ejs file generally in single variable
 })
 
-
+const port = 8080;
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+});
 //there are 2 lines of code more that we have to write so that ejs file can render from different directorries
 //we created views folder that is most important 
