@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>diceval generate</title>
 </head>
+
 <body>
-    <h1>The Dice value is : <%= dicevalue %> </h1> 
+    <h1>The Dice value is : <%= dicevalue %>
+    </h1>
     <!-- we don't prefer this code in ejs code for now only generating data otherewise data come from Database  here we have created the ejs data but it will come from database lets suppose and see in index.js file-->
+    <!-- Conditional Statements in Ejs  -->
+    <h2>
+        <% if (dicevalue==6) { %>
+            <h2>Nice ! Roll dice Again</h2>
+
+            <% } %>
+    </h2>
 </body>
+
 </html>

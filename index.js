@@ -17,9 +17,17 @@ app.get("/images", (req, res) => {
     res.render("images.ejs");
 })
 //render diceval route
-let dicevalue = Math.floor(Math.random() * 6) + 1; //suppose this value is from DataBase then
 app.get("/diceval", (req, res) => {
+    let dicevalue = Math.floor(Math.random() * 6) + 1; //suppose this value is from DataBase and we are sending to ejs file
     res.render("diceval.ejs", { dicevalue }); //as a object we send data to ejs file generally in single variable
+})
+
+
+//making template for instagram profile 
+let followers = ["Ronaldo", "Messi", "Neymar", "Dhoni","viki","hari"];//using for loop using in Ejs
+app.get("/ig/:username", (req, res) => {
+    let { username } = req.params; //assign reqeust we search "value of username" into username
+    res.render("instagram.ejs", { username, followers });//here passing username in  ejs value
 })
 
 const port = 8080;

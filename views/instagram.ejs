@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profiles Template</title>
+</head>
+
+<body>
+    <h2>This page belongs to </h2>
+    <h3>@<%= username %>
+    </h3>
+
+    <div style="display: flex; width: 14rem; justify-content: space-around;"><span>122<br>posts</span> <span>122K
+            <br>followers</span> <span>12<br>following</span></div>
+    <br>
+    <button>follow</button> <button>message</button> <button>+add</button>
+    <h2>Followers</h2>
+    <!-- This is how we can use loops in Ejs  -->
+        <% for(name of followers){ %>
+            <li>
+                <%= name %>
+            </li>
+            <% } %>
+</body>
+
+</html>
