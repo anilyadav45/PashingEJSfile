@@ -24,11 +24,11 @@ app.get("/diceval", (req, res) => {
 
 
 //making template for instagram profile 
-let followers = ["Ronaldo", "Messi", "Neymar", "Dhoni","viki","hari"];//using for loop using in Ejs
-app.get("/ig/:username", (req, res) => {
-    let { username } = req.params; //assign reqeust we search "value of username" into username
-    res.render("instagram.ejs", { username, followers });//here passing username in  ejs value
-})
+// let followers = ["Ronaldo", "Messi", "Neymar", "Dhoni","viki","hari"];//using for loop using in Ejs
+// app.get("/ig/:username", (req, res) => {
+//     let { username } = req.params; //assign reqeust we search "value of username" into username
+//     res.render("instagram.ejs", { username, followers });//here passing username in  ejs value
+// })
 
 const port = 8080;
 app.listen(port, () => {
@@ -36,3 +36,19 @@ app.listen(port, () => {
 });
 //there are 2 lines of code more that we have to write so that ejs file can render from different directorries
 //we created views folder that is most important 
+
+//Instagram Page with ejs route starts : 
+
+//here data come from DataBase suppose json file we have to require
+app.get("/ig/:username", (req, res) => {
+    let { username } = req.params; //only dogs and cats username found while routing
+    let instaData = require("./data.json");
+    let data = instaData[username]; //jsonfile[dogs or cats] will only searched
+    console.log(data);
+    if(data){
+        res.render("instagram.ejs", { data }); //will render only for data exits in data.json file
+    }
+    else{
+        res.render("error.ejs");
+    }
+})

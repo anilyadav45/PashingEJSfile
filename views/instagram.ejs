@@ -5,24 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Profiles Template</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
 </head>
 
 <body>
     <h2>This page belongs to </h2>
-    <h3>@<%= username %>
+    <h3>@<%= data.name %>
     </h3>
 
-    <div style="display: flex; width: 14rem; justify-content: space-around;"><span>122<br>posts</span> <span>122K
-            <br>followers</span> <span>12<br>following</span></div>
+    <div style="display: flex; width: 14rem; justify-content: space-around;"><span>42<br>posts</span> <span>
+            <%= data.followers %>
+                <br>followers
+        </span> <span>
+            <%= data.following %><br>following
+        </span></div>
     <br>
     <button>follow</button> <button>message</button> <button>+add</button>
-    <h2>Followers</h2>
-    <!-- This is how we can use loops in Ejs  -->
-        <% for(name of followers){ %>
-            <li>
-                <%= name %>
-            </li>
+    <br><br><br><br>
+    <hr>
+    <br>
+    <div class="post">
+        <!-- here post is data.posts[post]  in for of loop-->
+        <% for(post of data.posts){ %>
+            <img src="<%= post.image %> " alt="">
+            <div class="react"> <span> likes <%= post.likes %></span>
+                &nbsp; &nbsp;    <span> comments  <%= post.comments %></span>
+            </div>
             <% } %>
+    </div>
 </body>
 
 </html>
