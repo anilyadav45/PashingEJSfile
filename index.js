@@ -14,9 +14,9 @@ app.get("/", (req, res) => {
 
 //render images route
 app.get("/images", (req, res) => {
-    res.render("images.ejs");
-})
-//render diceval route
+        res.render("images.ejs");
+    })
+    //render diceval route
 app.get("/diceval", (req, res) => {
     let dicevalue = Math.floor(Math.random() * 6) + 1; //suppose this value is from DataBase and we are sending to ejs file
     res.render("diceval.ejs", { dicevalue }); //as a object we send data to ejs file generally in single variable
@@ -45,10 +45,11 @@ app.get("/ig/:username", (req, res) => {
     let instaData = require("./data.json");
     let data = instaData[username]; //jsonfile[dogs or cats] will only searched
     console.log(data);
-    if(data){
+    if (data) {
         res.render("instagram.ejs", { data }); //will render only for data exits in data.json file
-    }
-    else{
+    } else {
         res.render("error.ejs");
     }
 })
+
+//above all concepts is called templating
